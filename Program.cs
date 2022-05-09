@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using hilo.Game;
+
+namespace hilo
+{
+    class Program
+    {
+        static int Main(string[] args)
+        {
+            Console.WriteLine("Hello world.");
+        }
+    }
+}

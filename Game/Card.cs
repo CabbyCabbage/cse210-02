@@ -4,12 +4,12 @@ namespace hilo.Game {
 
     public class Card {
 
-        int value = 0;
+        public int value = 0;
 
         public Card() {
         }
 
-        public Draw() {
+        public void Draw() {
             Random rnd = new Random();
             value = rnd.Next(1,14);
         }

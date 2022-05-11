@@ -4,9 +4,10 @@ namespace hilo
 {
     class Program
     {
-        static int Main(string[] args)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Hello world.");
+            Director director = new Director();
+            director.StartGame();
         }
     }
 }

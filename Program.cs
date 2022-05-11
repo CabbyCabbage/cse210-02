@@ -1,13 +1,19 @@
-﻿using hilo.Game;
+﻿// Hilo program | CSE 210 Assignment 02
+// Authors: Caleb Schmid
 
-namespace hilo
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+using hilo.Game;
+
+namespace hilo {
+
+    // Main Program class
+    class Program {
+        
+        // Initializes instance of the Director class and starts the game
+        static void Main(string[] args) {
+
             Director director = new Director();
             director.StartGame();
+
         }
     }
 }

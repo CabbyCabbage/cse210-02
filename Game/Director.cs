@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace hilo.Game {
 
+    /// Class Director directs the game, when it starts and ends, and everything in between
     public class Director {
-
+        
         Boolean isPlaying = true;
         
         Card card = new Card();
@@ -13,10 +14,12 @@ namespace hilo.Game {
         int score = 0;
         int prevValue = 0;
         
+        /// Constructor intializes the points counter to 300
         public Director() {
             score = 300;
         } 
 
+        /// Starts the game, looping until isPlaying is false
         public void StartGame() {
             while (isPlaying) {
                 GetInputs();
@@ -25,6 +28,7 @@ namespace hilo.Game {
             }
         }
 
+        /// Draws the first card, then allows the user to decide to guess high or low
         public void GetInputs() {
             card.Draw();
             prevValue = card.value;
@@ -33,6 +37,7 @@ namespace hilo.Game {
             highLow = Console.ReadLine();
         }
 
+        /// While playing, updates points according to the user's guess
         public void DoUpdates() {
             if (!isPlaying)
             {
@@ -62,6 +67,7 @@ namespace hilo.Game {
             }
         }
 
+        /// Outputs the scores and recieves input from the user whether to continue play
         public void DoOutputs() {
             if (!isPlaying) {
                 Console.WriteLine("Game over, man!");

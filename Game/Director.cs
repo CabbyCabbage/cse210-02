@@ -33,8 +33,17 @@ namespace hilo.Game {
             card.Draw();
             prevValue = card.value;
             Console.WriteLine($"The card is: {card.value}");
-            Console.Write($"Higher or lower? [h/l] ");
-            highLow = Console.ReadLine();
+
+            Boolean isInvalid = true;
+            while (isInvalid) {
+                Console.Write($"Higher or lower? [h/l] ");
+                highLow = Console.ReadLine().ToLower();
+                if (!(highLow == "h" || highLow == "l")) {
+                    Console.WriteLine("Please enter a valid input");
+                } else {
+                    isInvalid = false;
+                }
+            }
         }
 
         /// While playing, updates points according to the user's guess
@@ -76,9 +85,20 @@ namespace hilo.Game {
 
             Console.WriteLine($"The next card was: {card.value}");
             Console.WriteLine($"Your score is {score}");
-            Console.Write("Play again? (y/n) ");
-            if (Console.ReadLine() == "n") {
-                isPlaying = false;
+
+            string playAgain = "";
+            Boolean isInvalid = true;
+            while (isInvalid) {
+                Console.Write("Play again? (y/n) ");
+                playAgain = Console.ReadLine().ToLower();
+                if (playAgain == "n") {
+                    isPlaying = false;
+                    isInvalid = false;
+                } else if (playAgain != "y") {
+                    Console.WriteLine("Please enter a valid input");
+                } else {
+                    isInvalid = false;
+                }
             }
             Console.WriteLine();
         }

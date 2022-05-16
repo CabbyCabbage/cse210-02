@@ -17,6 +17,8 @@ namespace hilo.Game {
         /// Constructor intializes the points counter to 300
         public Director() {
             score = 300;
+            card.Draw();
+            prevValue = card.value;
         } 
 
         /// Starts the game, looping until isPlaying is false
@@ -30,9 +32,7 @@ namespace hilo.Game {
 
         /// Draws the first card, then allows the user to decide to guess high or low
         public void GetInputs() {
-            card.Draw();
-            prevValue = card.value;
-            Console.WriteLine($"The card is: {card.value}");
+            Console.WriteLine($"The card is: {prevValue}");
 
             Boolean isInvalid = true;
             while (isInvalid) {
@@ -94,10 +94,12 @@ namespace hilo.Game {
                 if (playAgain == "n") {
                     isPlaying = false;
                     isInvalid = false;
+                    Console.WriteLine("\nThanks for playing!");
                 } else if (playAgain != "y") {
                     Console.WriteLine("Please enter a valid input");
                 } else {
                     isInvalid = false;
+                    prevValue = card.value;
                 }
             }
             Console.WriteLine();
